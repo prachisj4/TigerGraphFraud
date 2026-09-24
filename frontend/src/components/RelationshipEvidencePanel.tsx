@@ -1,13 +1,33 @@
 import React from 'react';
-import { CreditCard, Laptop, MapPin, Mail, ShieldAlert, Clock } from 'lucide-react';
+import { CreditCard, Laptop, MapPin, Mail, ShieldAlert, CheckCircle2, Clock } from 'lucide-react';
+import { type GraphData } from './GraphView';
 
-export const RelationshipEvidencePanel: React.FC = () => {
+interface RelationshipEvidencePanelProps {
+  graphData?: GraphData;
+  isLoading?: boolean;
+}
+
+export const RelationshipEvidencePanel: React.FC<RelationshipEvidencePanelProps> = ({
+  graphData,
+  isLoading = false,
+}) => {
+  const nodes = graphData?.nodes || [];
+  const edges = graphData?.edges || [];
+  const isCompleted = nodes.length > 0;
+
+  // Calculate actual evidence metrics from real graph data
+  const cardCount = nodes.filter((n) => n.type === 'Card').length;
+  const deviceCount = nodes.filter((n) => n.type === 'Device').length;
+  const regionCount = nodes.filter((n) => n.type === 'BillingRegion').length;
+  const emailCount = nodes.filter((n) => n.type === 'EmailDomain').length;
+  const fraudCaseCount = nodes.filter((n) => n.type === 'FraudCase').length;
+
   const evidenceCategories = [
-    { label: 'Shared Cards', icon: CreditCard },
-    { label: 'Shared Devices', icon: Laptop },
-    { label: 'Shared Billing Regions', icon: MapPin },
-    { label: 'Shared Email Domains', icon: Mail },
-    { label: 'Related Fraud Cases', icon: ShieldAlert },
+    { label: 'Shared Cards', icon: CreditCard, count: cardCount },
+    { label: 'Shared Devices', icon: Laptop, count: deviceCount },
+    { label: 'Shared Billing Regions', icon: MapPin, count: regionCount },
+    { label: 'Shared Email Domains', icon: Mail, count: emailCount },
+    { label: 'Related Fraud Cases', icon: ShieldAlert, count: fraudCaseCount },
   ];
 
   return (
@@ -15,8 +35,14 @@ export const RelationshipEvidencePanel: React.FC = () => {
       <div>
         <div className="flex items-center justify-between mb-3">
           <h3 className="text-sm font-semibold text-slate-200">Relationship Evidence</h3>
-          <span className="text-[10px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/30">
-            Pending Query
+          <span
+            className={`text-[10px] px-2 py-0.5 rounded font-mono border ${
+              isCompleted
+                ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30 font-semibold'
+                : 'bg-amber-500/10 text-amber-400 border-amber-500/30'
+            }`}
+          >
+            {isLoading ? 'Querying...' : isCompleted ? 'Completed' : 'Pending Query'}
           </span>
         </div>
         <p className="text-xs text-slate-400 mb-4">
@@ -37,7 +63,13 @@ export const RelationshipEvidencePanel: React.FC = () => {
                   </div>
                   <span>{cat.label}</span>
                 </div>
-                <span className="text-[10px] text-slate-500 font-mono">0 links</span>
+                <span
+                  className={`text-[10px] font-mono ${
+                    cat.count > 0 ? 'text-emerald-400 font-bold' : 'text-slate-500'
+                  }`}
+                >
+                  {cat.count} {cat.count === 1 ? 'link' : 'links'}
+                </span>
               </div>
             );
           })}
@@ -45,8 +77,17 @@ export const RelationshipEvidencePanel: React.FC = () => {
       </div>
 
       <div className="mt-5 p-3 bg-slate-950/80 border border-slate-800 rounded-lg flex items-center gap-2 text-xs text-slate-400">
-        <Clock className="w-4 h-4 text-amber-400 shrink-0" />
-        <span>Awaiting TigerGraph analysis</span>
+        {isCompleted ? (
+          <>
+            <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+            <span>Graph evidence active ({nodes.length} nodes, {edges.length} edges)</span>
+          </>
+        ) : (
+          <>
+            <Clock className="w-4 h-4 text-amber-400 shrink-0" />
+            <span>Awaiting TigerGraph analysis</span>
+          </>
+        )}
       </div>
     </div>
   );

@@ -176,7 +176,7 @@ export const GraphIntelligence: React.FC = () => {
 
         <div className="lg:col-span-1 space-y-6">
           <NodeDetailsPanel selectedNode={selectedNode} />
-          <RelationshipEvidencePanel />
+          <RelationshipEvidencePanel graphData={graphData} isLoading={loading} />
         </div>
       </div>
     </div>

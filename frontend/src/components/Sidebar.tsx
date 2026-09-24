@@ -66,14 +66,20 @@ export const Sidebar: React.FC = () => {
     {
       name: 'Agent',
       icon: Bot,
-      status: 'Integration Pending',
-      stateColor: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
+      status: health.agent === 'connected' ? 'Connected' : health.agent === 'checking' ? 'Checking...' : 'Not Connected',
+      stateColor:
+        health.agent === 'connected'
+          ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30'
+          : 'bg-amber-500/20 text-amber-400 border-amber-500/30',
     },
     {
       name: 'TigerGraph',
       icon: Server,
-      status: 'Integration Pending',
-      stateColor: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
+      status: health.tigergraph === 'connected' ? 'Connected' : health.tigergraph === 'checking' ? 'Checking...' : 'Not Connected',
+      stateColor:
+        health.tigergraph === 'connected'
+          ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30'
+          : 'bg-amber-500/20 text-amber-400 border-amber-500/30',
     },
   ];
 
