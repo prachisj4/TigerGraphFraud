@@ -1,6 +1,9 @@
 import { casesData, type CaseRecord } from '../data/casesData';
 
-const BASE_URL = (import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000/api').replace(/\/$/, '');
+const RAW_API_URL = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000';
+const cleanUrl = RAW_API_URL.replace(/\/$/, '');
+const BASE_URL = cleanUrl.endsWith('/api') ? cleanUrl : `${cleanUrl}/api`;
+
 
 
 
