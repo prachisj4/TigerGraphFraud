@@ -1,0 +1,70 @@
+// TigerGraph Savanna Schema Definition for CustomerTransactionGraph
+// Graph Name: CustomerTransactionGraph
+
+CREATE VERTEX Customer (
+    PRIMARY_ID customer_id STRING,
+    fraud_flag BOOL DEFAULT false
+) WITH STATS="OUTDEGREE_BY_EDGETYPE";
+
+CREATE VERTEX Transaction (
+    PRIMARY_ID transaction_id INT,
+    transaction_amt DOUBLE,
+    ts STRING,
+    channel STRING,
+    risk_score DOUBLE,
+    is_fraud BOOL DEFAULT false
+) WITH STATS="OUTDEGREE_BY_EDGETYPE";
+
+CREATE VERTEX Card (
+    PRIMARY_ID card_id STRING,
+    card_type STRING,
+    issue_country STRING
+) WITH STATS="OUTDEGREE_BY_EDGETYPE";
+
+CREATE VERTEX DeviceProfile (
+    PRIMARY_ID device_id STRING,
+    device_type STRING,
+    os_info STRING
+) WITH STATS="OUTDEGREE_BY_EDGETYPE";
+
+CREATE VERTEX BillingRegion (
+    PRIMARY_ID region_id STRING,
+    region_name STRING
+) WITH STATS="OUTDEGREE_BY_EDGETYPE";
+
+CREATE VERTEX EmailDomain (
+    PRIMARY_ID domain_name STRING
+) WITH STATS="OUTDEGREE_BY_EDGETYPE";
+
+CREATE VERTEX FraudCase (
+    PRIMARY_ID case_id STRING,
+    opened_at STRING,
+    trigger_type STRING,
+    risk_score DOUBLE
+) WITH STATS="OUTDEGREE_BY_EDGETYPE";
+
+// Directed / Undirected Edges
+CREATE DIRECTED EDGE made_transaction (FROM Customer, TO Transaction) WITH STATS="OUTDEGREE_BY_EDGETYPE";
+CREATE UNDIRECTED EDGE Owns (FROM Customer, TO Card);
+CREATE DIRECTED EDGE Made (FROM Transaction, TO Card);
+CREATE DIRECTED EDGE FROM_DEVICE (FROM Transaction, TO DeviceProfile);
+CREATE DIRECTED EDGE BILLED_IN (FROM Transaction, TO BillingRegion);
+CREATE DIRECTED EDGE PURCHASER_EMAIL (FROM Transaction, TO EmailDomain);
+CREATE DIRECTED EDGE FLAGS (FROM Transaction, TO FraudCase);
+
+CREATE GRAPH CustomerTransactionGraph (
+    Customer,
+    Transaction,
+    Card,
+    DeviceProfile,
+    BillingRegion,
+    EmailDomain,
+    FraudCase,
+    made_transaction,
+    Owns,
+    Made,
+    FROM_DEVICE,
+    BILLED_IN,
+    PURCHASER_EMAIL,
+    FLAGS
+);

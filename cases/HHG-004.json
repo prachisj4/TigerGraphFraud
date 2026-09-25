@@ -1,0 +1,279 @@
+{
+  "case": {
+    "case_id": "HHG-004",
+    "opened_at": "2016-12-29 07:53:54",
+    "trigger_type": "customer_report",
+    "trigger_text": "Customer C08106 message: 'I never made this $128.33 purchase. Please check my card.' Refers to 3583227.",
+    "flagged_txn_id": "3583227",
+    "card_id": "C08106-K1",
+    "customer_id": "C08106",
+    "risk_score": null
+  },
+  "transaction": {
+    "transaction_id": 3583227,
+    "amount": 128.33,
+    "customer_id": "C08106",
+    "channel": "online",
+    "risk_score": 0.34,
+    "region": null
+  },
+  "customer_behavior": {
+    "customer_id": "C08106",
+    "total_transactions": 216,
+    "average_amount": 35.52,
+    "maximum_amount": 138.89
+  },
+  "region_history": {
+    "region": null,
+    "times_used": 0,
+    "seen_before": false
+  },
+  "device_identity": {
+    "identity_found": true,
+    "device_type": "desktop",
+    "device_info": null
+  },
+  "graph_evidence": {
+    "status": "completed",
+    "summary": {
+      "customer_id": "C08106",
+      "transaction_id": "3583227",
+      "total_nodes": 10,
+      "total_edges": 9
+    },
+    "nodes": [
+      {
+        "id": "C08106",
+        "type": "Customer",
+        "label": "Customer C08106",
+        "properties": {
+          "customer_id": "C08106"
+        }
+      },
+      {
+        "id": "3583227",
+        "type": "Transaction",
+        "label": "Txn 3583227",
+        "properties": {
+          "transaction_id": 3583227,
+          "transaction_amt": 128.33,
+          "ts": "2016-12-29 01:53:54",
+          "channel": "online",
+          "risk_score": 0.34
+        }
+      },
+      {
+        "id": "3550051",
+        "type": "Transaction",
+        "label": "Transaction 3550051",
+        "properties": {}
+      },
+      {
+        "id": "3560751",
+        "type": "Transaction",
+        "label": "Transaction 3560751",
+        "properties": {}
+      },
+      {
+        "id": "3200962",
+        "type": "Transaction",
+        "label": "Transaction 3200962",
+        "properties": {}
+      },
+      {
+        "id": "3092419",
+        "type": "Transaction",
+        "label": "Transaction 3092419",
+        "properties": {}
+      },
+      {
+        "id": "3113247",
+        "type": "Transaction",
+        "label": "Transaction 3113247",
+        "properties": {}
+      },
+      {
+        "id": "3561593",
+        "type": "Transaction",
+        "label": "Transaction 3561593",
+        "properties": {}
+      },
+      {
+        "id": "3511834",
+        "type": "Transaction",
+        "label": "Transaction 3511834",
+        "properties": {}
+      },
+      {
+        "id": "3195447",
+        "type": "Transaction",
+        "label": "Transaction 3195447",
+        "properties": {}
+      }
+    ],
+    "edges": [
+      {
+        "source": "C08106",
+        "target": "3550051",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C08106",
+        "target": "3560751",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C08106",
+        "target": "3200962",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C08106",
+        "target": "3092419",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C08106",
+        "target": "3113247",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C08106",
+        "target": "3561593",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C08106",
+        "target": "3511834",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C08106",
+        "target": "3195447",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C08106",
+        "target": "3583227",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      }
+    ],
+    "findings": [
+      "Customer C08106 is connected via 'made_transaction' to Flagged Transaction 3583227 in TigerGraph."
+    ]
+  },
+  "historical_case_analysis": {
+    "total_matches": 4,
+    "confirmed_fraud_count": 3,
+    "cleared_count": 1,
+    "historical_fraud_rate": 0.75,
+    "sample_cases": [
+      {
+        "case_id": "CC-0696",
+        "customer_id": "C08106",
+        "outcome": "cleared",
+        "pattern": "none",
+        "exposure_usd": 0.0,
+        "analyst_notes": "Case CC-0696: model scored a $13.68 transaction at 0.83. Cardholder confirmed travel to the billing region in question. Alert cleared...."
+      },
+      {
+        "case_id": "CC-1736",
+        "customer_id": "C08106",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_fraud",
+        "exposure_usd": 9.9,
+        "analyst_notes": "Case CC-1736: cardholder C08106 reported unrecognized activity on card C08106-K1. 1 transaction(s) between 2016-08-05 and 2016-08-05 totaling $9.90 we..."
+      },
+      {
+        "case_id": "CC-2121",
+        "customer_id": "C08106",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_fraud",
+        "exposure_usd": 102.68,
+        "analyst_notes": "Case CC-2121: cardholder C08106 reported unrecognized activity on card C08106-K1. 1 transaction(s) between 2016-08-14 and 2016-08-14 totaling $102.68 ..."
+      },
+      {
+        "case_id": "CC-3778",
+        "customer_id": "C08106",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_fraud",
+        "exposure_usd": 58.42,
+        "analyst_notes": "Case CC-3778: cardholder C08106 reported unrecognized activity on card C08106-K1. 1 transaction(s) between 2016-09-20 and 2016-09-20 totaling $58.42 w..."
+      }
+    ]
+  },
+  "agent_trace": [
+    {
+      "step": 1,
+      "tool": "check_region_history",
+      "status": "completed",
+      "summary": "Successfully executed tool 'check_region_history'.",
+      "input": {
+        "customer_id": "C08106"
+      },
+      "output": {
+        "region": null,
+        "times_used": 0,
+        "seen_before": false
+      },
+      "timestamp": "2026-09-24T17:56:34.074258"
+    },
+    {
+      "step": 2,
+      "tool": "check_device_identity",
+      "status": "completed",
+      "summary": "Successfully executed tool 'check_device_identity'.",
+      "input": {
+        "transaction_id": "3583227"
+      },
+      "output": {
+        "identity_found": true,
+        "device_type": "desktop",
+        "device_info": null
+      },
+      "timestamp": "2026-09-24T17:56:36.046252"
+    }
+  ],
+  "agent_assessment": {
+    "recommendation": "ESCALATE",
+    "confidence": 0.95,
+    "summary": "Autonomous fraud investigation into Transaction 3583227 for Customer C08106 revealed high-risk indicators. The transaction amount ($128.33) significantly exceeds the customer's historical average ($35.52). Furthermore, region history indicates the billing region has never been seen before. Crucially, historical case analysis shows 3 confirmed fraud cases out of 4 past alerts for this customer, establishing a strong recurring pattern of card-not-present fraud.",
+    "risk_factors": [
+      "Transaction amount significantly higher than customer average ($128.33 vs $35.52 average)",
+      "Unseen billing region with zero prior usage history",
+      "High historical fraud rate for the customer (75% confirmed fraud across past cases)"
+    ],
+    "supporting_evidence": [
+      "Transaction amount of $128.33 is nearly 4x the customer's average spend",
+      "Billing region history check confirmed zero prior transactions from this region",
+      "Historical case analysis retrieved 3 confirmed card-not-present fraud cases for customer C08106 (Cases CC-1736, CC-2121, CC-3778)"
+    ],
+    "contradicting_evidence": [
+      "Device identity check confirmed a recognized desktop device type"
+    ],
+    "graph_findings": [
+      "TigerGraph connection unavailable due to a 500 Server Error during query execution"
+    ],
+    "historical_findings": [
+      "Customer C08106 has a history of 4 total cases with 3 confirmed fraud outcomes and 1 cleared case, representing a 0.75 historical fraud rate under card-not-present patterns"
+    ],
+    "suggested_action": "Block transaction 3583227 immediately, suspend card C08106-K1, and escalate to a human fraud specialist for outbound customer verification.",
+    "limitations": [
+      "TigerGraph connection error prevented complete link-analysis and graph-based entity resolution"
+    ],
+    "tools_used": [
+      "check_device_identity",
+      "check_region_history"
+    ]
+  },
+  "model_used": "gemini-3.5-flash-lite"
+}

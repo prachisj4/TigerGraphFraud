@@ -23,11 +23,12 @@ load_dotenv(dotenv_path=ENV_PATH)
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 CANDIDATE_MODELS = [
-    "gemini-3.5-flash-lite",
-    "gemini-3.1-flash-lite",
-    "gemini-3-flash-preview",
     "gemini-3.6-flash",
-    "gemini-3.5-flash"
+    "gemini-3.5-flash",
+    "gemini-3.1-flash-lite",
+    "gemini-flash-latest",
+    "gemini-flash-lite-latest",
+    "gemini-3.8-flash"
 ]
 
 
@@ -39,7 +40,10 @@ def run_gemini_investigation(case: dict) -> dict:
     Strictly excludes internal thoughts, system prompts, or hidden reasoning.
     Includes multi-model failover for high resilience against transient API rate/capacity limits.
     """
-    if not GEMINI_API_KEY:
+    load_dotenv(dotenv_path=ENV_PATH, override=True)
+    api_key = os.getenv("GEMINI_API_KEY")
+
+    if not api_key:
         return {
             "status": "error",
             "message": "GEMINI_API_KEY not configured in backend/.env",
@@ -47,7 +51,7 @@ def run_gemini_investigation(case: dict) -> dict:
             "assessment": None
         }
 
-    client = genai.Client(api_key=GEMINI_API_KEY)
+    client = genai.Client(api_key=api_key)
 
     tools_map = {
         "get_transaction_details": get_transaction_details,
@@ -258,11 +262,9 @@ Return ONLY valid JSON matching this schema:
 
         except Exception as err:
             last_error = err
-            err_str = str(err)
-            if "503" in err_str or "UNAVAILABLE" in err_str or "429" in err_str or "RESOURCE_EXHAUSTED" in err_str or "NOT_FOUND" in err_str:
-                time.sleep(1)
-                continue
-            break
+            print(f"Model {model_id} failed: {err}. Trying next candidate model...", flush=True)
+            time.sleep(2)
+            continue
 
     return {
         "status": "error",

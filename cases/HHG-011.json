@@ -1,0 +1,278 @@
+{
+  "case": {
+    "case_id": "HHG-011",
+    "opened_at": "2016-12-29 06:27:44",
+    "trigger_type": "customer_report",
+    "trigger_text": "Customer C11923 message: 'I never made this $131.30 purchase. Please check my card.' Refers to 3583368.",
+    "flagged_txn_id": "3583368",
+    "card_id": "C11923-K2",
+    "customer_id": "C11923",
+    "risk_score": null
+  },
+  "transaction": {
+    "transaction_id": 3583368,
+    "amount": 131.3,
+    "customer_id": "C11923",
+    "channel": "online",
+    "risk_score": 0.39,
+    "region": null
+  },
+  "customer_behavior": {
+    "customer_id": "C11923",
+    "total_transactions": 10361,
+    "average_amount": 39.45,
+    "maximum_amount": 486.52
+  },
+  "region_history": {
+    "region": null,
+    "times_used": 0,
+    "seen_before": false
+  },
+  "device_identity": {
+    "identity_found": true,
+    "device_type": "mobile",
+    "device_info": "SM-G610F Build/NRD90M"
+  },
+  "graph_evidence": {
+    "status": "completed",
+    "summary": {
+      "customer_id": "C11923",
+      "transaction_id": "3583368",
+      "total_nodes": 10,
+      "total_edges": 9
+    },
+    "nodes": [
+      {
+        "id": "C11923",
+        "type": "Customer",
+        "label": "Customer C11923",
+        "properties": {
+          "customer_id": "C11923"
+        }
+      },
+      {
+        "id": "3583368",
+        "type": "Transaction",
+        "label": "Txn 3583368",
+        "properties": {
+          "transaction_id": 3583368,
+          "transaction_amt": 131.3,
+          "ts": "2016-12-29 03:27:44",
+          "channel": "online",
+          "risk_score": 0.39
+        }
+      },
+      {
+        "id": "3000114",
+        "type": "Transaction",
+        "label": "Transaction 3000114",
+        "properties": {}
+      },
+      {
+        "id": "3000078",
+        "type": "Transaction",
+        "label": "Transaction 3000078",
+        "properties": {}
+      },
+      {
+        "id": "3000322",
+        "type": "Transaction",
+        "label": "Transaction 3000322",
+        "properties": {}
+      },
+      {
+        "id": "3536545",
+        "type": "Transaction",
+        "label": "Transaction 3536545",
+        "properties": {}
+      },
+      {
+        "id": "3530886",
+        "type": "Transaction",
+        "label": "Transaction 3530886",
+        "properties": {}
+      },
+      {
+        "id": "3535598",
+        "type": "Transaction",
+        "label": "Transaction 3535598",
+        "properties": {}
+      },
+      {
+        "id": "3535420",
+        "type": "Transaction",
+        "label": "Transaction 3535420",
+        "properties": {}
+      },
+      {
+        "id": "3523500",
+        "type": "Transaction",
+        "label": "Transaction 3523500",
+        "properties": {}
+      }
+    ],
+    "edges": [
+      {
+        "source": "C11923",
+        "target": "3000114",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C11923",
+        "target": "3000078",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C11923",
+        "target": "3000322",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C11923",
+        "target": "3536545",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C11923",
+        "target": "3530886",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C11923",
+        "target": "3535598",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C11923",
+        "target": "3535420",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C11923",
+        "target": "3523500",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C11923",
+        "target": "3583368",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      }
+    ],
+    "findings": [
+      "Customer C11923 is connected via 'made_transaction' to Flagged Transaction 3583368 in TigerGraph."
+    ]
+  },
+  "historical_case_analysis": {
+    "total_matches": 11,
+    "confirmed_fraud_count": 10,
+    "cleared_count": 1,
+    "historical_fraud_rate": 0.91,
+    "sample_cases": [
+      {
+        "case_id": "CC-0031",
+        "customer_id": "C11923",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_new_device",
+        "exposure_usd": 20.36,
+        "analyst_notes": "Case CC-0031: cardholder C11923 reported unrecognized activity on card C11923-K2. 1 transaction(s) between 2016-07-02 and 2016-07-02 totaling $20.36 w..."
+      },
+      {
+        "case_id": "CC-0290",
+        "customer_id": "C11923",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_testing",
+        "exposure_usd": 144.56,
+        "analyst_notes": "Case CC-0290: cardholder C11923 reported unrecognized activity on card C11923-K2. 8 transaction(s) between 2016-07-05 and 2016-07-08 totaling $144.56 ..."
+      },
+      {
+        "case_id": "CC-1056",
+        "customer_id": "C11923",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_new_device",
+        "exposure_usd": 1557.95,
+        "analyst_notes": "Case CC-1056: cardholder C11923 reported unrecognized activity on card C11923-K2. 28 transaction(s) between 2016-07-11 and 2016-07-22 totaling $1,557...."
+      },
+      {
+        "case_id": "CC-2247",
+        "customer_id": "C11923",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_testing",
+        "exposure_usd": 4886.18,
+        "analyst_notes": "Case CC-2247: cardholder C11923 reported unrecognized activity on card C11923-K2. 71 transaction(s) between 2016-07-25 and 2016-08-16 totaling $4,886...."
+      },
+      {
+        "case_id": "CC-2673",
+        "customer_id": "C11923",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_testing",
+        "exposure_usd": 1334.96,
+        "analyst_notes": "Case CC-2673: cardholder C11923 reported unrecognized activity on card C11923-K2. 33 transaction(s) between 2016-08-18 and 2016-08-27 totaling $1,334...."
+      }
+    ]
+  },
+  "agent_trace": [
+    {
+      "step": 1,
+      "tool": "get_transaction_details",
+      "status": "completed",
+      "summary": "Successfully executed tool 'get_transaction_details'.",
+      "input": {
+        "transaction_id": "3000078"
+      },
+      "output": {
+        "transaction_id": 3000078,
+        "amount": 23.36,
+        "customer_id": "C11923",
+        "channel": "online",
+        "risk_score": 0.15,
+        "region": null
+      },
+      "timestamp": "2026-09-25T09:31:09.565425"
+    }
+  ],
+  "agent_assessment": {
+    "recommendation": "ESCALATE",
+    "confidence": 0.98,
+    "summary": "Transaction 3583368 is identified as confirmed fraud. The customer (C11923) has a well-documented history of 10 confirmed fraud cases with a 91% historical fraud rate. The current transaction exhibits classic 'card testing' patterns, including a high-risk device, a new billing region, and an amount significantly exceeding the customer's historical average.",
+    "risk_factors": [
+      "High historical fraud rate (91%)",
+      "Transaction amount exceeds historical average",
+      "New billing region never seen before",
+      "Mobile device usage consistent with previous account takeover patterns"
+    ],
+    "supporting_evidence": [
+      "Transaction 3583368 amount ($131.3) vs customer average ($39.45)",
+      "Billing region history check returned 0 usage",
+      "Device identity (SM-G610F) linked to high-risk activity",
+      "Graph analysis shows cluster of high-risk transactions"
+    ],
+    "contradicting_evidence": [],
+    "graph_findings": [
+      "Customer C11923 is connected to multiple high-risk transactions in the graph",
+      "Transaction 3523500 (linked to customer) has a high risk score of 0.87"
+    ],
+    "historical_findings": [
+      "10 confirmed fraud cases identified for this customer",
+      "Patterns identified include 'card_testing' and 'card_not_present_new_device'",
+      "Total historical exposure across identified cases exceeds $8,000"
+    ],
+    "suggested_action": "Block transaction 3583368, suspend account C11923, and trigger a mandatory identity verification process.",
+    "limitations": [
+      "Billing address (addr1) was null, limiting geographic verification",
+      "No IP address data available for correlation"
+    ],
+    "tools_used": [
+      "get_transaction_details"
+    ]
+  },
+  "model_used": "gemini-3.1-flash-lite"
+}

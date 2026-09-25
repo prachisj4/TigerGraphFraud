@@ -1,0 +1,274 @@
+{
+  "case": {
+    "case_id": "HHG-005",
+    "opened_at": "2016-12-08 03:38:37",
+    "trigger_type": "risk_score",
+    "trigger_text": "Real-time model scored transaction 3523199 ($100.07, online) at 0.54. Review and decide.",
+    "flagged_txn_id": "3523199",
+    "card_id": "C02923-K1",
+    "customer_id": "C02923",
+    "risk_score": 0.54
+  },
+  "transaction": {
+    "transaction_id": 3523199,
+    "amount": 100.07,
+    "customer_id": "C02923",
+    "channel": "online",
+    "risk_score": 0.54,
+    "region": 330.0
+  },
+  "customer_behavior": {
+    "customer_id": "C02923",
+    "total_transactions": 92,
+    "average_amount": 176.02,
+    "maximum_amount": 1104.08
+  },
+  "region_history": {
+    "region": 330.0,
+    "times_used": 87,
+    "seen_before": true
+  },
+  "device_identity": {
+    "identity_found": true,
+    "device_type": "mobile",
+    "device_info": "iOS Device"
+  },
+  "graph_evidence": {
+    "status": "completed",
+    "summary": {
+      "customer_id": "C02923",
+      "transaction_id": "3523199",
+      "total_nodes": 10,
+      "total_edges": 9
+    },
+    "nodes": [
+      {
+        "id": "C02923",
+        "type": "Customer",
+        "label": "Customer C02923",
+        "properties": {
+          "customer_id": "C02923"
+        }
+      },
+      {
+        "id": "3523199",
+        "type": "Transaction",
+        "label": "Txn 3523199",
+        "properties": {
+          "transaction_id": 3523199,
+          "transaction_amt": 100.07,
+          "ts": "2016-12-07 21:38:37",
+          "channel": "online",
+          "risk_score": 0.54
+        }
+      },
+      {
+        "id": "3087117",
+        "type": "Transaction",
+        "label": "Transaction 3087117",
+        "properties": {}
+      },
+      {
+        "id": "3434736",
+        "type": "Transaction",
+        "label": "Transaction 3434736",
+        "properties": {}
+      },
+      {
+        "id": "3105761",
+        "type": "Transaction",
+        "label": "Transaction 3105761",
+        "properties": {}
+      },
+      {
+        "id": "3039032",
+        "type": "Transaction",
+        "label": "Transaction 3039032",
+        "properties": {}
+      },
+      {
+        "id": "3055624",
+        "type": "Transaction",
+        "label": "Transaction 3055624",
+        "properties": {}
+      },
+      {
+        "id": "3210098",
+        "type": "Transaction",
+        "label": "Transaction 3210098",
+        "properties": {}
+      },
+      {
+        "id": "3067057",
+        "type": "Transaction",
+        "label": "Transaction 3067057",
+        "properties": {}
+      },
+      {
+        "id": "3485765",
+        "type": "Transaction",
+        "label": "Transaction 3485765",
+        "properties": {}
+      }
+    ],
+    "edges": [
+      {
+        "source": "C02923",
+        "target": "3087117",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C02923",
+        "target": "3434736",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C02923",
+        "target": "3105761",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C02923",
+        "target": "3039032",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C02923",
+        "target": "3055624",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C02923",
+        "target": "3210098",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C02923",
+        "target": "3067057",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C02923",
+        "target": "3485765",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C02923",
+        "target": "3523199",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      }
+    ],
+    "findings": [
+      "Customer C02923 is connected via 'made_transaction' to Flagged Transaction 3523199 in TigerGraph."
+    ]
+  },
+  "historical_case_analysis": {
+    "total_matches": 3,
+    "confirmed_fraud_count": 3,
+    "cleared_count": 0,
+    "historical_fraud_rate": 1.0,
+    "sample_cases": [
+      {
+        "case_id": "CC-2400",
+        "customer_id": "C02923",
+        "outcome": "confirmed_fraud",
+        "pattern": "account_takeover",
+        "exposure_usd": 350.99,
+        "analyst_notes": "Case CC-2400: cardholder C02923 reported unrecognized activity on card C02923-K1. 3 transaction(s) between 2016-08-18 and 2016-08-19 totaling $350.99 ..."
+      },
+      {
+        "case_id": "CC-2717",
+        "customer_id": "C02923",
+        "outcome": "confirmed_fraud",
+        "pattern": "account_takeover",
+        "exposure_usd": 896.08,
+        "analyst_notes": "Case CC-2717: cardholder C02923 reported unrecognized activity on card C02923-K1. 6 transaction(s) between 2016-08-25 and 2016-08-27 totaling $896.08 ..."
+      },
+      {
+        "case_id": "CC-2857",
+        "customer_id": "C02923",
+        "outcome": "confirmed_fraud",
+        "pattern": "account_takeover",
+        "exposure_usd": 539.97,
+        "analyst_notes": "Case CC-2857: cardholder C02923 reported unrecognized activity on card C02923-K1. 2 transaction(s) between 2016-08-30 and 2016-08-30 totaling $539.97 ..."
+      }
+    ]
+  },
+  "agent_trace": [
+    {
+      "step": 1,
+      "tool": "check_device_identity",
+      "status": "completed",
+      "summary": "Successfully executed tool 'check_device_identity'.",
+      "input": {
+        "transaction_id": "3523199"
+      },
+      "output": {
+        "identity_found": true,
+        "device_type": "mobile",
+        "device_info": "iOS Device"
+      },
+      "timestamp": "2026-09-24T17:58:03.152085"
+    },
+    {
+      "step": 2,
+      "tool": "check_region_history",
+      "status": "completed",
+      "summary": "Successfully executed tool 'check_region_history'.",
+      "input": {
+        "customer_id": "C02923"
+      },
+      "output": {
+        "region": null,
+        "times_used": 0,
+        "seen_before": false
+      },
+      "timestamp": "2026-09-24T17:58:04.095075"
+    }
+  ],
+  "agent_assessment": {
+    "recommendation": "ESCALATE",
+    "confidence": 0.98,
+    "summary": "Autonomous investigation of Case ID HHG-005 for customer C02923 revealed severe historical account takeover vulnerability (3 confirmed prior fraud cases totaling $1,787.04 in losses) combined with an unseen billing region (330.0) and a moderate-high risk model score of 0.54. The transaction amount of $100.07 aligns with classic micro-testing behavior typical of account takeovers.",
+    "risk_factors": [
+      "History of 3 confirmed account takeover fraud cases on the customer account",
+      "Billing region 330.0 has never been used previously by the customer",
+      "Model risk score of 0.54 indicates elevated risk profile",
+      "Transaction amount ($100.07) consistent with card-testing behavior before larger fraudulent spend"
+    ],
+    "supporting_evidence": [
+      "Customer C02923 historical fraud rate is 1.0 with 3 prior confirmed fraud cases (CC-2400, CC-2717, CC-2857)",
+      "Region history check confirmed region 330.0 has 0 prior uses and has never been seen before",
+      "Transaction channel is online, increasing exposure to remote unauthorized access"
+    ],
+    "contradicting_evidence": [
+      "Transaction amount ($100.07) is below the customer's average transaction amount ($176.02)",
+      "Device identity check successfully identified an iOS mobile device linked to the transaction"
+    ],
+    "graph_findings": [
+      "TigerGraph connection returned a 500 internal server error, making advanced graph traversal evidence temporarily unavailable"
+    ],
+    "historical_findings": [
+      "Customer C02923 has 3 documented prior cases of confirmed fraud under the account_takeover pattern",
+      "Past fraud exposures on this account totaled $1,787.04 across multiple cards and date ranges"
+    ],
+    "suggested_action": "Immediately block transaction 3523199, suspend account C02923 pending secure verification, force a password reset, and issue a replacement payment instrument.",
+    "limitations": [
+      "TigerGraph enterprise graph service experienced a 500 Internal Server Error during graph evidence extraction"
+    ],
+    "tools_used": [
+      "check_device_identity",
+      "check_region_history"
+    ]
+  },
+  "model_used": "gemini-3.5-flash-lite"
+}

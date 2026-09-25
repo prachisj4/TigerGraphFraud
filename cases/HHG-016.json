@@ -1,0 +1,249 @@
+{
+  "case": {
+    "case_id": "HHG-016",
+    "opened_at": "2016-12-12 01:39:08",
+    "trigger_type": "customer_report",
+    "trigger_text": "Customer C09988 message: 'I never made this $59.67 purchase. Please check my card.' Refers to 3534820.",
+    "flagged_txn_id": "3534820",
+    "card_id": "C09988-K1",
+    "customer_id": "C09988",
+    "risk_score": null
+  },
+  "transaction": {
+    "transaction_id": 3534820,
+    "amount": 59.67,
+    "customer_id": "C09988",
+    "channel": "online",
+    "risk_score": 0.37,
+    "region": null
+  },
+  "customer_behavior": {
+    "customer_id": "C09988",
+    "total_transactions": 61,
+    "average_amount": 41.81,
+    "maximum_amount": 134.97
+  },
+  "region_history": {
+    "region": null,
+    "times_used": 0,
+    "seen_before": false
+  },
+  "device_identity": {
+    "identity_found": true,
+    "device_type": "desktop",
+    "device_info": "Windows"
+  },
+  "graph_evidence": {
+    "status": "completed",
+    "summary": {
+      "customer_id": "C09988",
+      "transaction_id": "3534820",
+      "total_nodes": 10,
+      "total_edges": 9
+    },
+    "nodes": [
+      {
+        "id": "C09988",
+        "type": "Customer",
+        "label": "Customer C09988",
+        "properties": {
+          "customer_id": "C09988"
+        }
+      },
+      {
+        "id": "3534820",
+        "type": "Transaction",
+        "label": "Txn 3534820",
+        "properties": {
+          "transaction_id": 3534820,
+          "transaction_amt": 59.67,
+          "ts": "2016-12-11 22:39:08",
+          "channel": "online",
+          "risk_score": 0.37
+        }
+      },
+      {
+        "id": "3557399",
+        "type": "Transaction",
+        "label": "Transaction 3557399",
+        "properties": {}
+      },
+      {
+        "id": "3330430",
+        "type": "Transaction",
+        "label": "Transaction 3330430",
+        "properties": {}
+      },
+      {
+        "id": "3322716",
+        "type": "Transaction",
+        "label": "Transaction 3322716",
+        "properties": {}
+      },
+      {
+        "id": "3309431",
+        "type": "Transaction",
+        "label": "Transaction 3309431",
+        "properties": {}
+      },
+      {
+        "id": "3374700",
+        "type": "Transaction",
+        "label": "Transaction 3374700",
+        "properties": {}
+      },
+      {
+        "id": "3015139",
+        "type": "Transaction",
+        "label": "Transaction 3015139",
+        "properties": {}
+      },
+      {
+        "id": "3550014",
+        "type": "Transaction",
+        "label": "Transaction 3550014",
+        "properties": {}
+      },
+      {
+        "id": "3266021",
+        "type": "Transaction",
+        "label": "Transaction 3266021",
+        "properties": {}
+      }
+    ],
+    "edges": [
+      {
+        "source": "C09988",
+        "target": "3557399",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C09988",
+        "target": "3330430",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C09988",
+        "target": "3322716",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C09988",
+        "target": "3309431",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C09988",
+        "target": "3374700",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C09988",
+        "target": "3015139",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C09988",
+        "target": "3550014",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C09988",
+        "target": "3266021",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C09988",
+        "target": "3534820",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      }
+    ],
+    "findings": [
+      "Customer C09988 is connected via 'made_transaction' to Flagged Transaction 3534820 in TigerGraph."
+    ]
+  },
+  "historical_case_analysis": {
+    "total_matches": 0,
+    "confirmed_fraud_count": 0,
+    "cleared_count": 0,
+    "historical_fraud_rate": 0.0,
+    "sample_cases": []
+  },
+  "agent_trace": [
+    {
+      "step": 1,
+      "tool": "get_transaction_details",
+      "status": "completed",
+      "summary": "Successfully executed tool 'get_transaction_details'.",
+      "input": {
+        "transaction_id": "3550014"
+      },
+      "output": {
+        "transaction_id": 3550014,
+        "amount": 36.91,
+        "customer_id": "C09988",
+        "channel": "online",
+        "risk_score": 0.02,
+        "region": null
+      },
+      "timestamp": "2026-09-25T09:37:51.183278"
+    },
+    {
+      "step": 2,
+      "tool": "get_transaction_details",
+      "status": "completed",
+      "summary": "Successfully executed tool 'get_transaction_details'.",
+      "input": {
+        "transaction_id": "3266021"
+      },
+      "output": {
+        "transaction_id": 3266021,
+        "amount": 73.03,
+        "customer_id": "C09988",
+        "channel": "online",
+        "risk_score": 0.09,
+        "region": null
+      },
+      "timestamp": "2026-09-25T09:37:52.571435"
+    }
+  ],
+  "agent_assessment": {
+    "recommendation": "CLEAR",
+    "confidence": 0.95,
+    "summary": "The investigation into transaction 3534820 for customer C09988 shows no evidence of fraud. The transaction amount is consistent with the customer's historical spending patterns, and the device used is a standard desktop. While the billing region was not previously associated with the account, the overall account history is clean with no prior fraud indicators.",
+    "risk_factors": [
+      "Billing region has no prior history for this customer",
+      "Transaction risk score (0.37) is slightly elevated compared to the customer's average transaction risk"
+    ],
+    "supporting_evidence": [
+      "Transaction amount $59.67 is within the customer's historical range (avg $41.81, max $134.97)",
+      "Customer has a long, consistent history of 61 transactions",
+      "Device identity check confirmed a standard desktop environment"
+    ],
+    "contradicting_evidence": [],
+    "graph_findings": [
+      "Customer C09988 is connected to multiple legitimate transactions in the graph",
+      "No suspicious links to known fraudulent entities or clusters found"
+    ],
+    "historical_findings": [
+      "Customer has zero confirmed fraud cases and zero historical flags"
+    ],
+    "suggested_action": "Approve the transaction and update the customer's regional profile to include the new billing location.",
+    "limitations": [
+      "Billing region data was unavailable for historical comparison"
+    ],
+    "tools_used": [
+      "get_transaction_details"
+    ]
+  },
+  "model_used": "gemini-3.1-flash-lite"
+}

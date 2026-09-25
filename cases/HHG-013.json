@@ -1,0 +1,353 @@
+{
+  "case": {
+    "case_id": "HHG-013",
+    "opened_at": "2016-12-09 05:39:29",
+    "trigger_type": "risk_score",
+    "trigger_text": "Real-time model scored transaction 3526826 ($35.66, online) at 0.76. Review and decide.",
+    "flagged_txn_id": "3526826",
+    "card_id": "C07671-K2",
+    "customer_id": "C07671",
+    "risk_score": 0.76
+  },
+  "transaction": {
+    "transaction_id": 3526826,
+    "amount": 35.66,
+    "customer_id": "C07671",
+    "channel": "online",
+    "risk_score": 0.76,
+    "region": null
+  },
+  "customer_behavior": {
+    "customer_id": "C07671",
+    "total_transactions": 1569,
+    "average_amount": 112.42,
+    "maximum_amount": 3891.01
+  },
+  "region_history": {
+    "region": null,
+    "times_used": 0,
+    "seen_before": false
+  },
+  "device_identity": {
+    "identity_found": true,
+    "device_type": "desktop",
+    "device_info": "Windows"
+  },
+  "graph_evidence": {
+    "status": "completed",
+    "summary": {
+      "customer_id": "C07671",
+      "transaction_id": "3526826",
+      "total_nodes": 10,
+      "total_edges": 9
+    },
+    "nodes": [
+      {
+        "id": "C07671",
+        "type": "Customer",
+        "label": "Customer C07671",
+        "properties": {
+          "customer_id": "C07671"
+        }
+      },
+      {
+        "id": "3526826",
+        "type": "Transaction",
+        "label": "Txn 3526826",
+        "properties": {
+          "transaction_id": 3526826,
+          "transaction_amt": 35.66,
+          "ts": "2016-12-09 02:39:29",
+          "channel": "online",
+          "risk_score": 0.76
+        }
+      },
+      {
+        "id": "3544071",
+        "type": "Transaction",
+        "label": "Transaction 3544071",
+        "properties": {}
+      },
+      {
+        "id": "3511093",
+        "type": "Transaction",
+        "label": "Transaction 3511093",
+        "properties": {}
+      },
+      {
+        "id": "3561764",
+        "type": "Transaction",
+        "label": "Transaction 3561764",
+        "properties": {}
+      },
+      {
+        "id": "3581834",
+        "type": "Transaction",
+        "label": "Transaction 3581834",
+        "properties": {}
+      },
+      {
+        "id": "3505702",
+        "type": "Transaction",
+        "label": "Transaction 3505702",
+        "properties": {}
+      },
+      {
+        "id": "3508357",
+        "type": "Transaction",
+        "label": "Transaction 3508357",
+        "properties": {}
+      },
+      {
+        "id": "3525762",
+        "type": "Transaction",
+        "label": "Transaction 3525762",
+        "properties": {}
+      },
+      {
+        "id": "3520979",
+        "type": "Transaction",
+        "label": "Transaction 3520979",
+        "properties": {}
+      }
+    ],
+    "edges": [
+      {
+        "source": "C07671",
+        "target": "3544071",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C07671",
+        "target": "3511093",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C07671",
+        "target": "3561764",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C07671",
+        "target": "3581834",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C07671",
+        "target": "3505702",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C07671",
+        "target": "3508357",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C07671",
+        "target": "3525762",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C07671",
+        "target": "3520979",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C07671",
+        "target": "3526826",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      }
+    ],
+    "findings": [
+      "Customer C07671 is connected via 'made_transaction' to Flagged Transaction 3526826 in TigerGraph."
+    ]
+  },
+  "historical_case_analysis": {
+    "total_matches": 4,
+    "confirmed_fraud_count": 3,
+    "cleared_count": 1,
+    "historical_fraud_rate": 0.75,
+    "sample_cases": [
+      {
+        "case_id": "CC-1475",
+        "customer_id": "C07671",
+        "outcome": "confirmed_fraud",
+        "pattern": "account_takeover",
+        "exposure_usd": 1307.98,
+        "analyst_notes": "Case CC-1475: cardholder C07671 reported unrecognized activity on card C07671-K2. 10 transaction(s) between 2016-07-26 and 2016-07-29 totaling $1,307...."
+      },
+      {
+        "case_id": "CC-3216",
+        "customer_id": "C07671",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_new_device",
+        "exposure_usd": 449.97,
+        "analyst_notes": "Case CC-3216: cardholder C07671 reported unrecognized activity on card C07671-K2. 3 transaction(s) between 2016-09-08 and 2016-09-08 totaling $449.97 ..."
+      },
+      {
+        "case_id": "CC-3761",
+        "customer_id": "C07671",
+        "outcome": "cleared",
+        "pattern": "none",
+        "exposure_usd": 0.0,
+        "analyst_notes": "Case CC-3761: model scored a $3,891.01 transaction at 0.89. Cardholder confirmed the purchase. Amount unusual for this customer but consistent with th..."
+      },
+      {
+        "case_id": "CC-4294",
+        "customer_id": "C07671",
+        "outcome": "confirmed_fraud",
+        "pattern": "account_takeover",
+        "exposure_usd": 506.01,
+        "analyst_notes": "Case CC-4294: cardholder C07671 reported unrecognized activity on card C07671-K2. 2 transaction(s) between 2016-10-01 and 2016-10-02 totaling $506.01 ..."
+      }
+    ]
+  },
+  "agent_trace": [
+    {
+      "step": 1,
+      "tool": "get_customer_transactions",
+      "status": "completed",
+      "summary": "Successfully executed tool 'get_customer_transactions'.",
+      "input": {
+        "customer_id": "C07671"
+      },
+      "output": {
+        "customer_id": "C07671",
+        "total_transactions": 1569,
+        "average_amount": 112.42,
+        "maximum_amount": 3891.01
+      },
+      "timestamp": "2026-09-24T18:09:03.884133"
+    },
+    {
+      "step": 2,
+      "tool": "check_region_history",
+      "status": "completed",
+      "summary": "Successfully executed tool 'check_region_history'.",
+      "input": {
+        "customer_id": "C07671"
+      },
+      "output": {
+        "region": null,
+        "times_used": 0,
+        "seen_before": false
+      },
+      "timestamp": "2026-09-24T18:09:04.975802"
+    },
+    {
+      "step": 3,
+      "tool": "check_device_identity",
+      "status": "completed",
+      "summary": "Successfully executed tool 'check_device_identity'.",
+      "input": {
+        "transaction_id": "3526826"
+      },
+      "output": {
+        "identity_found": true,
+        "device_type": "desktop",
+        "device_info": "Windows"
+      },
+      "timestamp": "2026-09-24T18:09:06.696565"
+    },
+    {
+      "step": 4,
+      "tool": "historical_case_analysis",
+      "status": "completed",
+      "summary": "Successfully executed tool 'historical_case_analysis'.",
+      "input": {
+        "customer_id": "C07671"
+      },
+      "output": {
+        "total_matches": 4,
+        "confirmed_fraud_count": 3,
+        "cleared_count": 1,
+        "historical_fraud_rate": 0.75,
+        "sample_cases": [
+          {
+            "case_id": "CC-1475",
+            "customer_id": "C07671",
+            "outcome": "confirmed_fraud",
+            "pattern": "account_takeover",
+            "exposure_usd": 1307.98,
+            "analyst_notes": "Case CC-1475: cardholder C07671 reported unrecognized activity on card C07671-K2. 10 transaction(s) between 2016-07-26 and 2016-07-29 totaling $1,307...."
+          },
+          {
+            "case_id": "CC-3216",
+            "customer_id": "C07671",
+            "outcome": "confirmed_fraud",
+            "pattern": "card_not_present_new_device",
+            "exposure_usd": 449.97,
+            "analyst_notes": "Case CC-3216: cardholder C07671 reported unrecognized activity on card C07671-K2. 3 transaction(s) between 2016-09-08 and 2016-09-08 totaling $449.97 ..."
+          },
+          {
+            "case_id": "CC-3761",
+            "customer_id": "C07671",
+            "outcome": "cleared",
+            "pattern": "none",
+            "exposure_usd": 0.0,
+            "analyst_notes": "Case CC-3761: model scored a $3,891.01 transaction at 0.89. Cardholder confirmed the purchase. Amount unusual for this customer but consistent with th..."
+          },
+          {
+            "case_id": "CC-4294",
+            "customer_id": "C07671",
+            "outcome": "confirmed_fraud",
+            "pattern": "account_takeover",
+            "exposure_usd": 506.01,
+            "analyst_notes": "Case CC-4294: cardholder C07671 reported unrecognized activity on card C07671-K2. 2 transaction(s) between 2016-10-01 and 2016-10-02 totaling $506.01 ..."
+          }
+        ]
+      },
+      "timestamp": "2026-09-24T18:09:07.790492"
+    }
+  ],
+  "agent_assessment": {
+    "recommendation": "ESCALATE",
+    "confidence": 0.95,
+    "summary": "Investigation into Case ID HHG-013 (Customer C07671, Transaction ID 3526826) reveals a high model risk score (0.76) for a $35.66 online transaction. The customer profile indicates an extreme historical fraud rate of 75% across 4 prior cases, specifically involving Account Takeover (ATO) and card-not-present fraud patterns. Additionally, the billing region is entirely missing and unmapped, presenting classic indicators of a small-ticket testing transaction preceding account abuse.",
+    "risk_factors": [
+      "High model risk score of 0.76",
+      "Missing billing region (addr1: None) with zero prior regional history",
+      "Customer has a 75% historical fraud rate with 3 confirmed fraud cases out of 4",
+      "Past history of Account Takeover (ATO) and card-not-present fraud on the same customer profile",
+      "Online channel transaction originating from an unmapped regional profile"
+    ],
+    "supporting_evidence": [
+      "Model risk score evaluated at 0.76 for online channel",
+      "Region history check returned zero prior usage and unmapped billing region",
+      "Historical case analysis confirms 3 past confirmed_fraud cases and 1 cleared case for customer C07671",
+      "Past cases CC-1475 and CC-4294 explicitly documented Account Takeover patterns"
+    ],
+    "contradicting_evidence": [
+      "Transaction amount ($35.66) is relatively low compared to the customer's average transaction amount ($112.42)",
+      "Device identity was successfully resolved as a Windows desktop"
+    ],
+    "graph_findings": [
+      "TigerGraph connection unavailable due to network resolution errors during investigation"
+    ],
+    "historical_findings": [
+      "Customer C07671 has 4 total historical cases with a 75% fraud rate",
+      "Prior confirmed fraud cases involved card-not-present new device fraud and account takeover (Cases CC-1475, CC-3216, CC-4294)"
+    ],
+    "suggested_action": "Block transaction 3526826 immediately, place a temporary security hold on customer account C07671, and route to the fraud operations team for cardholder outreach.",
+    "limitations": [
+      "TigerGraph database connection failed, limiting graph-based entity linkage analysis",
+      "IP geolocation details unavailable due to missing addr1"
+    ],
+    "tools_used": [
+      "check_device_identity",
+      "historical_case_analysis",
+      "check_region_history",
+      "get_customer_transactions"
+    ]
+  },
+  "model_used": "gemini-3.5-flash-lite"
+}

@@ -1,0 +1,259 @@
+{
+  "case": {
+    "case_id": "HHG-015",
+    "opened_at": "2016-11-17 19:03:36",
+    "trigger_type": "risk_score",
+    "trigger_text": "Real-time model scored transaction 3464869 ($599.94, online) at 0.77. Review and decide.",
+    "flagged_txn_id": "3464869",
+    "card_id": "C03042-K1",
+    "customer_id": "C03042",
+    "risk_score": 0.77
+  },
+  "transaction": {
+    "transaction_id": 3464869,
+    "amount": 599.94,
+    "customer_id": "C03042",
+    "channel": "online",
+    "risk_score": 0.77,
+    "region": 327.0
+  },
+  "customer_behavior": {
+    "customer_id": "C03042",
+    "total_transactions": 79,
+    "average_amount": 144.57,
+    "maximum_amount": 599.94
+  },
+  "region_history": {
+    "region": 327.0,
+    "times_used": 2,
+    "seen_before": true
+  },
+  "device_identity": {
+    "identity_found": true,
+    "device_type": "desktop",
+    "device_info": "Trident/7.0"
+  },
+  "graph_evidence": {
+    "status": "completed",
+    "summary": {
+      "customer_id": "C03042",
+      "transaction_id": "3464869",
+      "total_nodes": 10,
+      "total_edges": 9
+    },
+    "nodes": [
+      {
+        "id": "C03042",
+        "type": "Customer",
+        "label": "Customer C03042",
+        "properties": {
+          "customer_id": "C03042"
+        }
+      },
+      {
+        "id": "3464869",
+        "type": "Transaction",
+        "label": "Txn 3464869",
+        "properties": {
+          "transaction_id": 3464869,
+          "transaction_amt": 599.94,
+          "ts": "2016-11-17 14:03:36",
+          "channel": "online",
+          "risk_score": 0.77
+        }
+      },
+      {
+        "id": "3563052",
+        "type": "Transaction",
+        "label": "Transaction 3563052",
+        "properties": {}
+      },
+      {
+        "id": "3087822",
+        "type": "Transaction",
+        "label": "Transaction 3087822",
+        "properties": {}
+      },
+      {
+        "id": "3563095",
+        "type": "Transaction",
+        "label": "Transaction 3563095",
+        "properties": {}
+      },
+      {
+        "id": "3024194",
+        "type": "Transaction",
+        "label": "Transaction 3024194",
+        "properties": {}
+      },
+      {
+        "id": "3444271",
+        "type": "Transaction",
+        "label": "Transaction 3444271",
+        "properties": {}
+      },
+      {
+        "id": "3086802",
+        "type": "Transaction",
+        "label": "Transaction 3086802",
+        "properties": {}
+      },
+      {
+        "id": "3357002",
+        "type": "Transaction",
+        "label": "Transaction 3357002",
+        "properties": {}
+      },
+      {
+        "id": "3212410",
+        "type": "Transaction",
+        "label": "Transaction 3212410",
+        "properties": {}
+      }
+    ],
+    "edges": [
+      {
+        "source": "C03042",
+        "target": "3464869",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C03042",
+        "target": "3563052",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C03042",
+        "target": "3087822",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C03042",
+        "target": "3563095",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C03042",
+        "target": "3024194",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C03042",
+        "target": "3444271",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C03042",
+        "target": "3086802",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C03042",
+        "target": "3357002",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C03042",
+        "target": "3212410",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      }
+    ],
+    "findings": [
+      "Customer C03042 is connected via 'made_transaction' to Flagged Transaction 3464869 in TigerGraph."
+    ]
+  },
+  "historical_case_analysis": {
+    "total_matches": 3,
+    "confirmed_fraud_count": 2,
+    "cleared_count": 1,
+    "historical_fraud_rate": 0.67,
+    "sample_cases": [
+      {
+        "case_id": "CC-0615",
+        "customer_id": "C03042",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_new_device",
+        "exposure_usd": 174.99,
+        "analyst_notes": "Case CC-0615: cardholder C03042 reported unrecognized activity on card C03042-K1. 1 transaction(s) between 2016-07-16 and 2016-07-16 totaling $174.99 ..."
+      },
+      {
+        "case_id": "CC-1313",
+        "customer_id": "C03042",
+        "outcome": "cleared",
+        "pattern": "none",
+        "exposure_usd": 0.0,
+        "analyst_notes": "Case CC-1313: model scored a $100.08 transaction at 0.87. Cardholder confirmed travel to the billing region in question. Alert cleared...."
+      },
+      {
+        "case_id": "CC-3886",
+        "customer_id": "C03042",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_new_device",
+        "exposure_usd": 175.05,
+        "analyst_notes": "Case CC-3886: cardholder C03042 reported unrecognized activity on card C03042-K1. 1 transaction(s) between 2016-09-23 and 2016-09-23 totaling $175.05 ..."
+      }
+    ]
+  },
+  "agent_trace": [
+    {
+      "step": 1,
+      "tool": "check_region_history",
+      "status": "completed",
+      "summary": "Successfully executed tool 'check_region_history'.",
+      "input": {
+        "customer_id": "C03042",
+        "region": 327
+      },
+      "output": {
+        "region": 327.0,
+        "times_used": 2,
+        "seen_before": true
+      },
+      "timestamp": "2026-09-24T18:11:09.083524"
+    }
+  ],
+  "agent_assessment": {
+    "recommendation": "ESCALATE",
+    "confidence": 0.95,
+    "summary": "Investigation into Case HHG-015 reveals high-risk indicators. Customer C03042 attempted an online transaction of $599.94, which significantly exceeds their historical average of $144.57 and matches their historical maximum. The model risk score is 0.77. Crucially, the customer has a documented history of confirmed fraud (67% historical fraud rate across prior cases involving card-not-present unauthorized activity). Although the billing region has been used before and a desktop device was identified, the combination of high transaction value, online channel, and strong historical fraud precedent necessitates immediate escalation and block.",
+    "risk_factors": [
+      "High model risk score of 0.77",
+      "Transaction amount ($599.94) is drastically higher than customer average ($144.57)",
+      "Card-not-present online transaction channel",
+      "Customer has a 67% historical fraud rate with prior confirmed fraud cases"
+    ],
+    "supporting_evidence": [
+      "Transaction amount of $599.94 matches customer maximum historical amount but is 4x the average",
+      "Historical case analysis shows 2 confirmed fraud cases (CC-0615, CC-3886) for customer C03042 involving card-not-present patterns",
+      "Model risk score is elevated at 0.77"
+    ],
+    "contradicting_evidence": [
+      "Billing region 327 has been used by the customer twice previously",
+      "Device identity was successfully resolved as a desktop device (Trident/7.0)"
+    ],
+    "graph_findings": [
+      "TigerGraph connection was unavailable during the trace due to a connection timeout error"
+    ],
+    "historical_findings": [
+      "Customer C03042 has 3 total historical cases with 2 confirmed frauds and 1 cleared case, yielding a historical fraud rate of 0.67",
+      "Global pattern analysis for card_not_present_new_device shows a 100% historical fraud rate across 1076 matches"
+    ],
+    "suggested_action": "Decline the transaction, block card C03042-K1, and contact the cardholder via verified channels to confirm or deny activity.",
+    "limitations": [
+      "Graph database connectivity failure prevented complete relational network analysis"
+    ],
+    "tools_used": [
+      "check_region_history"
+    ]
+  },
+  "model_used": "gemini-3.5-flash-lite"
+}

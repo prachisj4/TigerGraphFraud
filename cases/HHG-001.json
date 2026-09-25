@@ -1,0 +1,265 @@
+{
+  "case": {
+    "case_id": "HHG-001",
+    "opened_at": "2016-12-05 01:55:28",
+    "trigger_type": "risk_score",
+    "trigger_text": "Real-time model scored transaction 3514030 ($77.07, in billing region 444.0) at 0.61. Review and decide.",
+    "flagged_txn_id": "3514030",
+    "card_id": "C12382-K1",
+    "customer_id": "C12382",
+    "risk_score": 0.61
+  },
+  "transaction": {
+    "transaction_id": 3514030,
+    "amount": 77.07,
+    "customer_id": "C12382",
+    "channel": "in_person",
+    "risk_score": 0.61,
+    "region": 444.0
+  },
+  "customer_behavior": {
+    "customer_id": "C12382",
+    "total_transactions": 422,
+    "average_amount": 115.6,
+    "maximum_amount": 845.01
+  },
+  "region_history": {
+    "region": 444.0,
+    "times_used": 15,
+    "seen_before": true
+  },
+  "device_identity": {
+    "identity_found": false,
+    "message": "No identity/device record found"
+  },
+  "graph_evidence": {
+    "status": "completed",
+    "summary": {
+      "customer_id": "C12382",
+      "transaction_id": "3514030",
+      "total_nodes": 10,
+      "total_edges": 9
+    },
+    "nodes": [
+      {
+        "id": "C12382",
+        "type": "Customer",
+        "label": "Customer C12382",
+        "properties": {
+          "customer_id": "C12382"
+        }
+      },
+      {
+        "id": "3514030",
+        "type": "Transaction",
+        "label": "Txn 3514030",
+        "properties": {
+          "transaction_id": 3514030,
+          "transaction_amt": 77.07,
+          "ts": "2016-12-04 19:55:28",
+          "channel": "in_person",
+          "risk_score": 0.61
+        }
+      },
+      {
+        "id": "3551850",
+        "type": "Transaction",
+        "label": "Transaction 3551850",
+        "properties": {}
+      },
+      {
+        "id": "3202992",
+        "type": "Transaction",
+        "label": "Transaction 3202992",
+        "properties": {}
+      },
+      {
+        "id": "3243785",
+        "type": "Transaction",
+        "label": "Transaction 3243785",
+        "properties": {}
+      },
+      {
+        "id": "3015830",
+        "type": "Transaction",
+        "label": "Transaction 3015830",
+        "properties": {}
+      },
+      {
+        "id": "3434091",
+        "type": "Transaction",
+        "label": "Transaction 3434091",
+        "properties": {}
+      },
+      {
+        "id": "3463605",
+        "type": "Transaction",
+        "label": "Transaction 3463605",
+        "properties": {}
+      },
+      {
+        "id": "3336062",
+        "type": "Transaction",
+        "label": "Transaction 3336062",
+        "properties": {}
+      },
+      {
+        "id": "3359783",
+        "type": "Transaction",
+        "label": "Transaction 3359783",
+        "properties": {}
+      }
+    ],
+    "edges": [
+      {
+        "source": "C12382",
+        "target": "3551850",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C12382",
+        "target": "3202992",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C12382",
+        "target": "3243785",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C12382",
+        "target": "3015830",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C12382",
+        "target": "3434091",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C12382",
+        "target": "3463605",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C12382",
+        "target": "3336062",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C12382",
+        "target": "3359783",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C12382",
+        "target": "3514030",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      }
+    ],
+    "findings": [
+      "Customer C12382 is connected via 'made_transaction' to Flagged Transaction 3514030 in TigerGraph."
+    ]
+  },
+  "historical_case_analysis": {
+    "total_matches": 4,
+    "confirmed_fraud_count": 4,
+    "cleared_count": 0,
+    "historical_fraud_rate": 1.0,
+    "sample_cases": [
+      {
+        "case_id": "CC-1066",
+        "customer_id": "C12382",
+        "outcome": "confirmed_fraud",
+        "pattern": "out_of_region_use",
+        "exposure_usd": 170.98,
+        "analyst_notes": "Case CC-1066: cardholder C12382 reported unrecognized activity on card C12382-K1. 1 transaction(s) between 2016-07-23 and 2016-07-23 totaling $170.98 ..."
+      },
+      {
+        "case_id": "CC-1673",
+        "customer_id": "C12382",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_new_device",
+        "exposure_usd": 199.98,
+        "analyst_notes": "Case CC-1673: cardholder C12382 reported unrecognized activity on card C12382-K1. 1 transaction(s) between 2016-08-04 and 2016-08-04 totaling $199.98 ..."
+      },
+      {
+        "case_id": "CC-2964",
+        "customer_id": "C12382",
+        "outcome": "confirmed_fraud",
+        "pattern": "out_of_region_use",
+        "exposure_usd": 171.08,
+        "analyst_notes": "Case CC-2964: cardholder C12382 reported unrecognized activity on card C12382-K1. 1 transaction(s) between 2016-09-01 and 2016-09-01 totaling $171.08 ..."
+      },
+      {
+        "case_id": "CC-3587",
+        "customer_id": "C12382",
+        "outcome": "confirmed_fraud",
+        "pattern": "out_of_region_use",
+        "exposure_usd": 49.09,
+        "analyst_notes": "Case CC-3587: cardholder C12382 reported unrecognized activity on card C12382-K1. 1 transaction(s) between 2016-09-16 and 2016-09-16 totaling $49.09 w..."
+      }
+    ]
+  },
+  "agent_trace": [
+    {
+      "step": 1,
+      "tool": "check_region_history",
+      "status": "completed",
+      "summary": "Successfully executed tool 'check_region_history'.",
+      "input": {
+        "region": 444,
+        "customer_id": "C12382"
+      },
+      "output": {
+        "region": 444.0,
+        "times_used": 15,
+        "seen_before": true
+      },
+      "timestamp": "2026-09-25T09:17:59.429109"
+    }
+  ],
+  "agent_assessment": {
+    "recommendation": "ESCALATE",
+    "confidence": 0.95,
+    "summary": "Customer C12382 exhibits a 100% historical fraud rate across four prior confirmed cases. The current transaction (3514030) lacks any associated device identity, and the customer's history is characterized by recurring unauthorized activity patterns, specifically out-of-region usage and account compromise.",
+    "risk_factors": [
+      "High historical fraud rate (100% confirmed)",
+      "Absence of device identity/fingerprint",
+      "Recurring pattern of account compromise"
+    ],
+    "supporting_evidence": [
+      "Four confirmed fraud cases (CC-1066, CC-1673, CC-2964, CC-3587)",
+      "No device identity record found for transaction 3514030",
+      "Model risk score of 0.61"
+    ],
+    "contradicting_evidence": [
+      "Customer has 15 prior transactions in the billing region 444"
+    ],
+    "graph_findings": [
+      "Customer C12382 is directly linked to the flagged transaction 3514030 in the transaction graph"
+    ],
+    "historical_findings": [
+      "Consistent history of reported unrecognized activity",
+      "Multiple instances of out-of-region use and card-not-present fraud"
+    ],
+    "suggested_action": "Block transaction 3514030, flag account C12382 for immediate security review, and initiate account re-authentication.",
+    "limitations": [
+      "Lack of device metadata for the current transaction",
+      "Limited visibility into the physical point-of-sale terminal security"
+    ],
+    "tools_used": [
+      "check_region_history"
+    ]
+  },
+  "model_used": "gemini-3.1-flash-lite"
+}

@@ -16,30 +16,43 @@ def get_tigergraph_connection():
     Handles authentication via TIGERGRAPH_SECRET.
     Returns (connection_object, error_message).
     """
-    if not TIGERGRAPH_HOST or "YOUR_TIGERGRAPH_DOMAIN" in TIGERGRAPH_HOST:
+    load_dotenv(dotenv_path=ENV_PATH, override=True)
+    host = os.getenv("TIGERGRAPH_HOST")
+    secret = os.getenv("TIGERGRAPH_SECRET")
+
+    if not host or "YOUR_TIGERGRAPH_DOMAIN" in host:
         return None, "TIGERGRAPH_HOST placeholder detected. Real Savanna host URL required in backend/.env"
 
-    if not TIGERGRAPH_SECRET:
+    if not secret:
         return None, "TIGERGRAPH_SECRET missing in backend/.env"
 
-    try:
-        import pyTigerGraph as tg
+    last_err = None
+    for attempt in range(1, 4):
+        try:
+            import pyTigerGraph as tg
 
-        conn = tg.TigerGraphConnection(
-            host=TIGERGRAPH_HOST,
-            graphname=GRAPH_NAME,
-            gsqlSecret=TIGERGRAPH_SECRET,
-        )
+            conn = tg.TigerGraphConnection(
+                host=host,
+                graphname=GRAPH_NAME,
+                gsqlSecret=secret,
+            )
 
-        token = conn.getToken(secret=TIGERGRAPH_SECRET)
-        if token:
-            if isinstance(token, tuple):
-                token = token[0]
-            conn.apiToken = token
+            token = conn.getToken(secret=secret)
+            if token:
+                if isinstance(token, tuple):
+                    token = token[0]
+                conn.apiToken = token
 
-        return conn, None
-    except Exception as e:
-        return None, f"TigerGraph Connection Error: {str(e)}"
+            return conn, None
+        except Exception as e:
+            last_err = str(e)
+            if attempt < 3:
+                import time
+                time.sleep(1)
+                continue
+            break
+
+    return None, f"TigerGraph Connection Error: {last_err}"
 
 
 def test_connection():

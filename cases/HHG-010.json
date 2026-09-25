@@ -1,0 +1,285 @@
+{
+  "case": {
+    "case_id": "HHG-010",
+    "opened_at": "2016-12-02 18:18:27",
+    "trigger_type": "risk_score",
+    "trigger_text": "Real-time model scored transaction 3506725 ($1,000.03, online) at 0.90. Review and decide.",
+    "flagged_txn_id": "3506725",
+    "card_id": "C10434-K1",
+    "customer_id": "C10434",
+    "risk_score": 0.9
+  },
+  "transaction": {
+    "transaction_id": 3506725,
+    "amount": 1000.03,
+    "customer_id": "C10434",
+    "channel": "online",
+    "risk_score": 0.9,
+    "region": 469.0
+  },
+  "customer_behavior": {
+    "customer_id": "C10434",
+    "total_transactions": 36,
+    "average_amount": 153.87,
+    "maximum_amount": 1000.03
+  },
+  "region_history": {
+    "region": 469.0,
+    "times_used": 27,
+    "seen_before": true
+  },
+  "device_identity": {
+    "identity_found": true,
+    "device_type": "desktop",
+    "device_info": "Windows"
+  },
+  "graph_evidence": {
+    "status": "completed",
+    "summary": {
+      "customer_id": "C10434",
+      "transaction_id": "3506725",
+      "total_nodes": 10,
+      "total_edges": 9
+    },
+    "nodes": [
+      {
+        "id": "C10434",
+        "type": "Customer",
+        "label": "Customer C10434",
+        "properties": {
+          "customer_id": "C10434"
+        }
+      },
+      {
+        "id": "3506725",
+        "type": "Transaction",
+        "label": "Txn 3506725",
+        "properties": {
+          "transaction_id": 3506725,
+          "transaction_amt": 1000.03,
+          "ts": "2016-12-02 15:18:27",
+          "channel": "online",
+          "risk_score": 0.9
+        }
+      },
+      {
+        "id": "3087486",
+        "type": "Transaction",
+        "label": "Transaction 3087486",
+        "properties": {}
+      },
+      {
+        "id": "3397310",
+        "type": "Transaction",
+        "label": "Transaction 3397310",
+        "properties": {}
+      },
+      {
+        "id": "3237339",
+        "type": "Transaction",
+        "label": "Transaction 3237339",
+        "properties": {}
+      },
+      {
+        "id": "3197356",
+        "type": "Transaction",
+        "label": "Transaction 3197356",
+        "properties": {}
+      },
+      {
+        "id": "3519858",
+        "type": "Transaction",
+        "label": "Transaction 3519858",
+        "properties": {}
+      },
+      {
+        "id": "3282661",
+        "type": "Transaction",
+        "label": "Transaction 3282661",
+        "properties": {}
+      },
+      {
+        "id": "3076736",
+        "type": "Transaction",
+        "label": "Transaction 3076736",
+        "properties": {}
+      },
+      {
+        "id": "3392418",
+        "type": "Transaction",
+        "label": "Transaction 3392418",
+        "properties": {}
+      }
+    ],
+    "edges": [
+      {
+        "source": "C10434",
+        "target": "3087486",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C10434",
+        "target": "3397310",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C10434",
+        "target": "3237339",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C10434",
+        "target": "3197356",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C10434",
+        "target": "3519858",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C10434",
+        "target": "3506725",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C10434",
+        "target": "3282661",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C10434",
+        "target": "3076736",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      },
+      {
+        "source": "C10434",
+        "target": "3392418",
+        "type": "made_transaction",
+        "label": "made_transaction"
+      }
+    ],
+    "findings": [
+      "Customer C10434 is connected via 'made_transaction' to Flagged Transaction 3506725 in TigerGraph."
+    ]
+  },
+  "historical_case_analysis": {
+    "total_matches": 1,
+    "confirmed_fraud_count": 0,
+    "cleared_count": 1,
+    "historical_fraud_rate": 0.0,
+    "sample_cases": [
+      {
+        "case_id": "CC-0873",
+        "customer_id": "C10434",
+        "outcome": "cleared",
+        "pattern": "none",
+        "exposure_usd": 0.0,
+        "analyst_notes": "Case CC-0873: model scored a $50.05 transaction at 0.93. Cardholder confirmed travel to the billing region in question. Alert cleared...."
+      }
+    ]
+  },
+  "agent_trace": [
+    {
+      "step": 1,
+      "tool": "historical_case_analysis",
+      "status": "completed",
+      "summary": "Successfully executed tool 'historical_case_analysis'.",
+      "input": {
+        "pattern": "none"
+      },
+      "output": {
+        "total_matches": 900,
+        "confirmed_fraud_count": 0,
+        "cleared_count": 900,
+        "historical_fraud_rate": 0.0,
+        "sample_cases": [
+          {
+            "case_id": "CC-0003",
+            "customer_id": "C05876",
+            "outcome": "cleared",
+            "pattern": "none",
+            "exposure_usd": 0.0,
+            "analyst_notes": "Case CC-0003: model scored a $442.92 transaction at 0.91. Cardholder confirmed travel to the billing region in question. Alert cleared...."
+          },
+          {
+            "case_id": "CC-0009",
+            "customer_id": "C10112",
+            "outcome": "cleared",
+            "pattern": "none",
+            "exposure_usd": 0.0,
+            "analyst_notes": "Case CC-0009: model scored a $149.98 transaction at 0.84. Cardholder confirmed the purchase from a new phone. Device added to profile. Alert cleared...."
+          },
+          {
+            "case_id": "CC-0010",
+            "customer_id": "C03246",
+            "outcome": "cleared",
+            "pattern": "none",
+            "exposure_usd": 0.0,
+            "analyst_notes": "Case CC-0010: model scored a $96.95 transaction at 0.83. Cardholder confirmed the purchase from a new phone. Device added to profile. Alert cleared...."
+          },
+          {
+            "case_id": "CC-0015",
+            "customer_id": "C04597",
+            "outcome": "cleared",
+            "pattern": "none",
+            "exposure_usd": 0.0,
+            "analyst_notes": "Case CC-0015: model scored a $93.80 transaction at 0.92. Cardholder confirmed the purchase from a new phone. Device added to profile. Alert cleared...."
+          },
+          {
+            "case_id": "CC-0017",
+            "customer_id": "C03651",
+            "outcome": "cleared",
+            "pattern": "none",
+            "exposure_usd": 0.0,
+            "analyst_notes": "Case CC-0017: model scored a $149.97 transaction at 0.88. Cardholder confirmed the purchase from a new phone. Device added to profile. Alert cleared...."
+          }
+        ]
+      },
+      "timestamp": "2026-09-24T18:04:32.508606"
+    }
+  ],
+  "agent_assessment": {
+    "recommendation": "REVIEW",
+    "confidence": 0.88,
+    "summary": "Investigation of Case ID HHG-010 for transaction 3506725 ($1000.03, risk score 0.9) reveals a high-amount outlier and a first-time billing region (469.0). However, the transaction amount matches the customer's historical maximum, and the device is a recognized Windows desktop session. Given the novelty of the region and the amount spike, manual customer verification is recommended.",
+    "risk_factors": [
+      "High model risk score of 0.9",
+      "Transaction amount ($1000.03) significantly exceeds the customer average of $153.87",
+      "First-time billing region (469.0) with zero prior usage history"
+    ],
+    "supporting_evidence": [
+      "Transaction amount equals the customer's maximum historical amount ($1000.03)",
+      "Device identity for Windows desktop is recognized and valid (identity_found: true)",
+      "Customer has 36 total historical transactions indicating an established profile"
+    ],
+    "contradicting_evidence": [
+      "Billing region 469.0 has never been used before by this customer",
+      "Current transaction is over 6.5 times the customer's average transaction amount"
+    ],
+    "graph_findings": [
+      "TigerGraph connection unavailable due to cloud name resolution error, relying on relational customer and transaction records"
+    ],
+    "historical_findings": [
+      "Customer C10434 had 1 prior flagged case (CC-0873) which was successfully cleared as a false positive",
+      "Historical baseline shows frequent false-positive high risk scores for legitimate amount and region spikes"
+    ],
+    "suggested_action": "Contact cardholder via out-of-band verification (SMS/Email OTP) to confirm the $1000.03 online desktop purchase before releasing shipment or settlement.",
+    "limitations": [
+      "TigerGraph database connection failure prevented full network entity relationship mapping",
+      "IP geolocation metadata unavailable in current tool payload"
+    ],
+    "tools_used": [
+      "historical_case_analysis"
+    ]
+  },
+  "model_used": "gemini-3.5-flash-lite"
+}

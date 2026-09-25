@@ -8,6 +8,9 @@ from fastapi.middleware.cors import CORSMiddleware
 ENV_PATH = Path(__file__).resolve().parent / ".env"
 load_dotenv(dotenv_path=ENV_PATH)
 
+from pydantic import BaseModel
+from typing import Optional
+
 from agent_tools import (
     get_customer_transactions,
     get_transaction_details,
@@ -17,6 +20,7 @@ from agent_tools import (
 )
 from tigergraph import test_connection as test_tg_connection, get_graph_evidence
 from fraud_agent import run_gemini_investigation, GEMINI_API_KEY
+from graphrag import run_graphrag_query
 
 # Robust project-relative path resolution
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -174,3 +178,23 @@ def run_investigation(case_id: str):
         "agent_assessment": agent_result.get("assessment"),
         "model_used": agent_result.get("model_used")
     }
+
+
+class GraphRAGQueryRequest(BaseModel):
+    customer_id: Optional[str] = None
+    transaction_id: Optional[str] = None
+    question: Optional[str] = "Analyze graph relationships for potential fraud risks."
+
+
+@app.post("/api/graphrag/query")
+def graphrag_query_endpoint(req: GraphRAGQueryRequest):
+    try:
+        res = run_graphrag_query(
+            customer_id=req.customer_id,
+            transaction_id=req.transaction_id,
+            question=req.question or "Analyze graph relationships for potential fraud risks."
+        )
+        return res
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
